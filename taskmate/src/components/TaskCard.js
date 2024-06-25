@@ -1,6 +1,8 @@
+import './TaskCard.css';
+
 export default function TaskCard({ task, handleDelete }) {
   return (
-    <div>
+    <div className='taskcard'>
       <li className={task.completed ? 'completed' : 'incomplete'} key={task.id}>
         <span>
           {task.id} - {task.name}

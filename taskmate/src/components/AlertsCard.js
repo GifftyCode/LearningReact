@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './AlertsCard.css';
 
 export default function AlertsCard({ result, children }) {
   const [show, setShow] = useState(true);
