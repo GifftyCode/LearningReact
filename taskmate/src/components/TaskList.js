@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import TaskCard from './TaskCard';
 import AlertsCard from './AlertsCard';
+import './TaskList.css';
 
 export default function TaskList() {
   const [tasks, setTasks] = useState([
@@ -15,7 +16,7 @@ export default function TaskList() {
     setTasks(tasks.filter((task) => task.id !== id));
   }
   return (
-    <div>
+    <div className='tasklist'>
       <h1>Task List</h1>
       <ul>
         <button onClick={() => setShow(!show)} className='trigger'>
