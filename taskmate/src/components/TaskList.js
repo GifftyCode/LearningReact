@@ -12,15 +12,24 @@ export default function TaskList() {
 
   const [show, setShow] = useState(true);
 
+  const styles = {
+    border: '1px solid',
+    fontSize: '27px',
+    borderRadius: '7px',
+    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)',
+    borderColor: show ? '#baffbf' : '#ffb4b4',
+    color: show ? '#baffbf' : '#ffb4b4',
+  };
+
   function handleDelete(id) {
     setTasks(tasks.filter((task) => task.id !== id));
   }
   return (
     <div className='tasklist'>
-      <h1>Task List</h1>
+      <h1 style={styles}>Task List</h1>
       <ul>
         <button onClick={() => setShow(!show)} className='trigger'>
-          Toggle
+          {show ? 'Hide' : 'Show'}
         </button>
         {show &&
           tasks.map((task) => (
