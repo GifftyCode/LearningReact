@@ -17,3 +17,12 @@
 .taskcard li.incomplete {
   box-shadow: rgba(135, 20, 0, 0.689) 0px 1px 4px;
 }
+
+.taskcard button.delete {
+  border: 0px;
+  border-radius: 5px;
+  background-color: #be3434;
+  color: #ffffff;
+  padding: 5px 10px;
+  cursor: pointer;
+}
