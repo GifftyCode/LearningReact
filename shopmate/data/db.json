@@ -10,7 +10,7 @@
             "id": 10002,
             "name": "The Complete Guide to Backend Developmemt",
             "price": 77,
-            "in_stock": true
+            "in_stock": false
         },
         {
             "id": 10003,
@@ -23,6 +23,12 @@
             "name": "Build a Blockchain from Scratch in GO",
             "price": 99,
             "in_stock": false
+        },
+        {
+            "id": 10005,
+            "name": "Build a Blockchain from Scratch in React",
+            "price": 120,
+            "in_stock": true
         }
     
     ]
