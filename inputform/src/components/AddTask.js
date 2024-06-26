@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './AddTask.css';
 
-export const AddTask = () => {
+export const AddTask = ({ tasks, setTasks }) => {
   const [inputValue, setInputValue] = useState('');
   const [progress, setProgress] = useState(false);
 
@@ -17,7 +17,7 @@ export const AddTask = () => {
       name: inputValue,
       completed: Boolean(progress),
     };
-    console.log(task);
+    setTasks([...tasks, task]);
     handleReset();
   };
   return (
@@ -41,7 +41,6 @@ export const AddTask = () => {
           Reset
         </span>
       </form>
-      <p>{inputValue}</p>
     </section>
   );
 };
