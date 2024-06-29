@@ -2,12 +2,13 @@
 
 import { useState } from 'react';
 import useFetch from '../hooks/useFetch';
+import gif from '../assets/loading.gif';
 
 export const ProductList = () => {
   // const [products, setProducts] = useState([]);
   const [url, setUrl] = useState('http://localhost:8000/products');
 
-  const { data: products } = useFetch(url);
+  const { data: products, loading, error } = useFetch(url);
 
   // Using a direct fxn on our useEffect to fetch our API
   // useEffect(() => {
@@ -41,6 +42,13 @@ export const ProductList = () => {
           In Stock
         </button>
       </div>
+      {loading && (
+        <p>
+          <img src={gif} alt='' />
+          Loading Products...
+        </p>
+      )}
+      {error && <p>{error}</p>}
       {products &&
         products.map((product) => (
           <div className='card' key={product.id}>
