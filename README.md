@@ -240,5 +240,3 @@ All the concepts above are reinforced through the following mini projects includ
 3. **ShopMate**: An e-commerce project showcasing component composition, state management, conditional rendering, and styling.
 4. **TaskMate**: A task management application demonstrating CRUD operations, state management, and use of custom hooks.
 
-
->>>>>>> c45467d (Initialize project using Create React App)
