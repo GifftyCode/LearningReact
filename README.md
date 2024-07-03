@@ -17,8 +17,16 @@ Welcome to the **learningReact** repository! This project aims to help you start
     - [useRef](#useref)
 8. [useEffect](#useeffect)
 9. [useCallback](#usecallback)
-10. [Custom Hooks](#custom-hooks)
-11. [Mini Projects](#mini-projects)
+10. [React Router](#react-router)
+    - [useNavigate](#usenavigate)
+    - [Navigate](#navigate)
+    - [useParams](#useparams)
+    - [useSearchParams](#usesearchparams)
+    - [useLocation](#uselocation)
+    - [Nested Routes](#nested-routes)
+11. [Custom Hooks](#custom-hooks)
+12. [Organizing Project Structure](#organizing-project-structure)
+13. [Mini Projects](#mini-projects)
 
 ## Introduction
 
@@ -210,6 +218,120 @@ function Child({ increment }) {
 }
 ```
 
+## React Router
+
+React Router is a library for routing in React applications. It allows you to define routes and navigation in your app.
+
+### useNavigate
+
+The `useNavigate` hook returns a function that lets you navigate programmatically.
+
+Example:
+```jsx
+import { useNavigate } from 'react-router-dom';
+
+function Home() {
+  const navigate = useNavigate();
+
+  return (
+    <button onClick={() => navigate('/about')}>
+      Go to About Page
+    </button>
+  );
+}
+```
+
+### Navigate
+
+The `Navigate` component allows you to redirect users to another route.
+
+Example:
+```jsx
+import { Navigate } from 'react-router-dom';
+
+function Login({ isLoggedIn }) {
+  if (isLoggedIn) {
+    return <Navigate to="/dashboard" />;
+  }
+  return <div>Please log in</div>;
+}
+```
+
+### useParams
+
+The `useParams` hook returns an object of key-value pairs of URL parameters.
+
+Example:
+```jsx
+import { useParams } from 'react-router-dom';
+
+function ProductDetail() {
+  const { id } = useParams();
+
+  return <div>Product ID: {id}</div>;
+}
+```
+
+### useSearchParams
+
+The `useSearchParams` hook returns the current URL's query parameters.
+
+Example:
+```jsx
+import { useSearchParams } from 'react-router-dom';
+
+function SearchPage() {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  return (
+    <div>
+      <input
+        value={searchParams.get('query') || ''}
+        onChange={e => setSearchParams({ query: e.target.value })}
+      />
+      <p>Search Query: {searchParams.get('query')}</p>
+    </div>
+  );
+}
+```
+
+### useLocation
+
+The `useLocation` hook returns the current location object.
+
+Example:
+```jsx
+import { useLocation } from 'react-router-dom';
+
+function CurrentLocation() {
+  const location = useLocation();
+
+  return <div>Current URL: {location.pathname}</div>;
+}
+```
+
+### Nested Routes
+
+Nested routes allow you to define routes inside other routes.
+
+Example:
+```jsx
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />}>
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
+        </Route>
+      </Routes>
+    </Router>
+  );
+}
+```
+
 ## Custom Hooks
 
 Custom Hooks allow you to extract component logic into reusable functions.
@@ -224,12 +346,44 @@ function useFetch(url) {
   useEffect(() => {
     fetch(url)
       .then(response => response.json())
-      .then(data => setData(data));
+      .then(data => setData
+
+(data));
   }, [url]);
 
   return data;
 }
 ```
+
+## Organizing Project Structure
+
+Organizing your project structure helps in maintaining the codebase, making it scalable and easier to manage. Here’s a suggested structure:
+
+```plaintext
+src/
+|-- components/
+|   |-- common/
+|   |   |-- Button.js
+|   |   |-- Input.js
+|   |-- pages/
+|   |   |-- Home.js
+|   |   |-- About.js
+|   |   |-- Contact.js
+|   |-- App.js
+|-- hooks/
+|   |-- useFetch.js
+|-- styles/
+|   |-- App.css
+|-- index.js
+```
+
+### Grouping Pages and Components
+
+- **components/**: Contains reusable components.
+  - **common/**: Contains common UI elements like buttons and inputs.
+  - **pages/**: Contains page components that represent different routes.
+- **hooks/**: Contains custom hooks.
+- **styles/**: Contains CSS files for styling components.
 
 ## Mini Projects
 
@@ -239,4 +393,5 @@ All the concepts above are reinforced through the following mini projects includ
 2. **InputForm**: A project to handle user inputs, validate them, and manage form state.
 3. **ShopMate**: An e-commerce project showcasing component composition, state management, conditional rendering, and styling.
 4. **TaskMate**: A task management application demonstrating CRUD operations, state management, and use of custom hooks.
+5. **RouteMate**: A routing project demonstrating the use of React Router, nested routes, and handling URL parameters.
 
