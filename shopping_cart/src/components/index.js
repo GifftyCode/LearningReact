@@ -1,3 +1,3 @@
 export { Header } from './Header';
-export { Footer } from './Footer';
-export { Cards } from './Cards';
+export { CartCard } from './CartCard';
+export { ProductCard } from './ProductCard';
