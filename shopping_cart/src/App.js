@@ -1,15 +1,14 @@
-import { Header, Footer } from './components';
+import { AllRoutes } from './routes/AllRoutes';
+
+import { Header } from './components';
 
 import './App.css';
-
-import { AllRoutes } from './routes/AllRoutes';
 
 function App() {
   return (
     <div>
       <Header />
       <AllRoutes />
-      <Footer />
     </div>
   );
 }
